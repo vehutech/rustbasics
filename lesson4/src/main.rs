@@ -21,7 +21,14 @@ fn main(){
 
     let y = add(4, 6);
     println!("The value of y is {}", y);
-    println!("Value from function 'add' is: {}", add(4, 6))
+    println!("Value from function 'add' is: {}", add(4, 6));
+
+    // calling the BMI Function
+    let weight:f64 = 70.0;
+    let height: f64 = 1.82;
+    let bmi: f64 = calculate_bmi(weight, height);
+    println!("Your BMI is: {:.2}", bmi);
+
 }
 
 fn hello_woorld(){
@@ -43,8 +50,18 @@ fn human_id(name: &str, age: u32, height: f32) {
 // Expressions are anything that return a value.
 // Statements are anything that does not return a value
 
-
 // Functions retunrs values too
 fn add(a: i32, b:i32) -> i32 {
     a+b
+}
+
+// Variable declarations are statements
+//  Function definitions: fn foo() {} are statements
+// Control flows are statements
+
+// Create a function that returns the BMI (Body Mass Index)
+
+// BMI = Heigh(kg)/height(m)^2
+fn calculate_bmi(weight_kg: f64, height_m: f64)-> f64 {
+    weight_kg / (height_m * height_m)
 }
