@@ -27,6 +27,11 @@ impl AccountModel {
         // Update the account name field with the new name
         self.ac_name = new_name;
     }
+
+    fn withdraw(&mut self, amount: f64) {
+        println!("Withdrawing {} from {}", amount, self.ac_bal);
+        self.ac_bal -= amount
+    }
     
     // Method to display all account details to the console
     // Takes immutable reference (&self) since it only reads data, doesn't modify
@@ -43,7 +48,7 @@ fn main(){
     // 'mut' keyword allows us to modify the account later (for name change)
     let mut new_acc = AccountModel {
         bank_name: "ZENITH BANK".to_string(),           // Initialize bank name
-        ac_name: "Daniel Adavi Alonge".to_string(),     // Initialize account holder name
+        ac_name: "Adam Coker".to_string(),     // Initialize account holder name
         ac_num: 1234567678,                              // Initialize account number
         ac_bal: 600_000.00                               // Initialize balance (underscore for readability)
     };
@@ -52,8 +57,11 @@ fn main(){
     new_acc.display_ac_details();
     
     // Change the account holder's name (demonstrates &mut self method)
-    new_acc.change_ac_name("D. Vehu Alonge");
+    new_acc.change_ac_name("Jon Gjengest");
     
     // Display updated account details to confirm name change
     new_acc.display_ac_details();
+
+    // Withdraw money
+    new_acc.withdraw(500_000.0);
 }
